@@ -1,8 +1,12 @@
-import { useAppDispatch } from '../../../../app/hooks';
+import { useEffect } from 'react';
+
+import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
 import { downButton, leftButton, rightButton, upButton } from '../pokedex-button-central/pokedexButtonCentralSlice';
 import { selectButton } from '../pokedex-button-select/pokedexButtonSelectSlice';
-import { PokemonList } from '../../../../interfaces/pokemons.interface';
 import DisplayCaracteristics from '../display-caracteristics/DisplayCaracteristics';
+import { selectPokedex } from './pokedexSlice';
+import { CONSTANTS_POKEDEX_SLICE } from './pokedexSlice';
+
 import DisplayCentral from '../display-central/DisplayCentral';
 import DisplayMapLocalization from '../display-map-localization/DisplayMapLocalization';
 import PokedexButtonCentral from '../pokedex-button-central/PokedexButtonCentral';
@@ -12,15 +16,14 @@ import {
   PokedexArea,
 } from './styles';
 
-type Props = {
-  pokemonList: PokemonList
-}
-
-const Pokedex = ({
-  pokemonList
-}: Props) => {
+const Pokedex = () => {
 
   const dispatch = useAppDispatch();
+  const pokemonList = useAppSelector(selectPokedex);
+
+  useEffect(() => {
+    dispatch({ type: CONSTANTS_POKEDEX_SLICE.GET_POKEMONS });
+  }, []);
 
   return (
     <Container
