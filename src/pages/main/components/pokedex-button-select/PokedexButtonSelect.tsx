@@ -5,18 +5,18 @@ import {
 import {
   Button as ButtonClick
 } from '../../../../components';
-import { useAppDispatch } from '../../../../app/hooks';
-import { selectButton } from './pokedexButtonSelectSlice';
 
-const PokedexButtonSelect = () => {
+type Props = {
+  onClickSelect: () => void
+}
 
-  const appDispatch = useAppDispatch();
+const PokedexButtonSelect = ({ onClickSelect }: Props) => {
 
   return (
     <Button.Area>
       <Button.Select>
         <ButtonClick
-          onClick={() => appDispatch(selectButton())}
+          onClick={onClickSelect}
         />
       </Button.Select>
     </Button.Area>

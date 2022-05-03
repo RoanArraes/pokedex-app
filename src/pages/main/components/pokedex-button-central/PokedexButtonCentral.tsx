@@ -6,33 +6,40 @@ import {
   Button as ButtonClick
 } from '../../../../components';
 
-import { useAppDispatch } from '../../../../app/hooks';
-import { upButton, downButton, leftButton, rightButton } from './pokedexButtonCentralSlice'; 
+type Props = {
+  onClickUp: () => void,
+  onClickDown: () => void,
+  onClickLeft: () => void,
+  onClickRight: () => void,
+}
 
-const PokedexButtonCentral = () => {
-
-  const dispatch = useAppDispatch();
+const PokedexButtonCentral = ({
+  onClickUp,
+  onClickDown,
+  onClickLeft,
+  onClickRight
+}: Props) => {
 
   return (
     <Button.Area>
       <Button.Up>
         <ButtonClick
-          onClick={() => dispatch(upButton())}
+          onClick={onClickUp}
         />
       </Button.Up>
       <Button.Right>
         <ButtonClick
-          onClick={() => dispatch(rightButton())}
+          onClick={onClickRight}
         />
       </Button.Right>
       <Button.Left>
         <ButtonClick
-          onClick={() => dispatch(leftButton())}
+          onClick={onClickLeft}
         />
       </Button.Left>
       <Button.Down>
         <ButtonClick
-          onClick={() => dispatch(downButton())}
+          onClick={onClickDown}
         />
       </Button.Down>
     </Button.Area>

@@ -1,3 +1,6 @@
+import { useAppDispatch } from '../../../../app/hooks';
+import { downButton, leftButton, rightButton, upButton } from '../pokedex-button-central/pokedexButtonCentralSlice';
+import { selectButton } from '../pokedex-button-select/pokedexButtonSelectSlice';
 import { PokemonList } from '../../../../interfaces/pokemons.interface';
 import DisplayCaracteristics from '../display-caracteristics/DisplayCaracteristics';
 import DisplayCentral from '../display-central/DisplayCentral';
@@ -16,6 +19,9 @@ type Props = {
 const Pokedex = ({
   pokemonList
 }: Props) => {
+
+  const dispatch = useAppDispatch();
+
   return (
     <Container
       className='pokedex__container'
@@ -33,10 +39,17 @@ const Pokedex = ({
           <DisplayCaracteristics />
         </PokedexArea.DisplayBottomAreaCaracteristics>
         <PokedexArea.ButtonAreaCentral>
-          <PokedexButtonCentral />
+          <PokedexButtonCentral
+            onClickUp={() => dispatch(upButton())}
+            onClickDown={() => dispatch(downButton())}
+            onClickLeft={() => dispatch(leftButton())}
+            onClickRight={() => dispatch(rightButton())}
+          />
         </PokedexArea.ButtonAreaCentral>
         <PokedexArea.ButtonAreaSelect>
-          <PokedexButtonSelect />
+          <PokedexButtonSelect
+            onClickSelect={() => dispatch(selectButton())}
+          />
         </PokedexArea.ButtonAreaSelect>
       </PokedexArea.Area>
     </Container>
