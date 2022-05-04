@@ -13,7 +13,7 @@ const numberIndicators = 10;
 
 const BargraphRounded = ({
   label,
-  value = 20,
+  value = 0,
   sensibilityIndicator = 1
 }: Props) => {
 
@@ -37,9 +37,9 @@ const BargraphRounded = ({
   };
 
   const verifyIsActiveBar = (idxIndicator: number): boolean => {
-    const numIndicatorActived = ((value * sensibilityIndicator) / numberIndicators);
+    const numIndicatorActived = Math.round((value * sensibilityIndicator) / numberIndicators);
 
-    if(idxIndicator <= numIndicatorActived) {
+    if(idxIndicator < numIndicatorActived) {
       return true
     }
 
