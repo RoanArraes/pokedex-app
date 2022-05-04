@@ -1,24 +1,29 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { ImageRender } from "../../../../components";
 import { PokemonList } from "../../../../interfaces/pokemons.interface";
 import { Display } from "./styles";
 import { buttonCentralValue } from '../pokedex-button-central/pokedexButtonCentralSlice';
 import { useAppDispatch, useAppSelector } from "../../../../app/hooks";
-import { buttonSelectValue, clearSelectButtonData } from "../pokedex-button-select/pokedexButtonSelectSlice";
+import { clearPokemonData, CONSTANTS_POKEDEX_SLICE, selectPokedex } from "../pokedex/pokedexSlice";
 
 type Props = {
-  pokemonList: PokemonList
+  onPokemonSelectedId: (id: string) => void
 }
 
 const DisplayCentral = ({
-  pokemonList
+  onPokemonSelectedId
 }: Props) => {
 
   const dispatch = useAppDispatch();
 
   const buttonCentral = useAppSelector(buttonCentralValue);
-  const buttonSelect = useAppSelector(buttonSelectValue);
-  const [ selectedPokemon, setSelectedPokemon ] = useState("");
+  const pokemonList = useAppSelector(selectPokedex).pokemons;
+  const selectedPokemon = useAppSelector(selectPokedex).pokemon;
+
+
+  useEffect(() => {
+    dispatch({ type: CONSTANTS_POKEDEX_SLICE.GET_POKEMONS });
+  }, [])
 
   useEffect(() => {
     if(pokemonList) {
@@ -27,22 +32,11 @@ const DisplayCentral = ({
         documento.scrollTop =+ buttonCentral.value * 35;
       }
     }
-
-    if(buttonSelect.action !== "" && selectedPokemon === "") {
-      searchIdElementSelected();
-    }
   });
 
   useEffect(() => {
-      setSelectedPokemon("");
-      dispatch(clearSelectButtonData());
+    dispatch(clearPokemonData());
   },[buttonCentral]);
-
-  const searchIdElementSelected = () => {
-    const elementSelected = pokemonList.results[buttonCentral.value];
-    dispatch(clearSelectButtonData());
-    setSelectedPokemon(getId(elementSelected.url));
-  }
 
   const renderPokemonsList = (list: PokemonList) => {
     return (
@@ -54,7 +48,7 @@ const DisplayCentral = ({
             return(
               <Display.Title
                 key={pokemon.name}
-                isInObservation={idx === buttonCentral.value}
+                isInObservation={verifyIsInObservation(idx, pokemon.url)}
               >
                 {capitalizeFirstLetter(pokemon.name)}
               </Display.Title>
@@ -73,13 +67,22 @@ const DisplayCentral = ({
     return word[0].toUpperCase() + word.substring(1);
   }
 
+  const verifyIsInObservation = (indexElement: number, pokemonUrl: string): boolean => {
+    if(indexElement === buttonCentral.value) {
+      const id = getId(pokemonUrl);
+      onPokemonSelectedId(id);
+      return true;
+    }
+    return false;
+  }
+
   return (
     <Display.Area>
       {
-        selectedPokemon !== ""
+        selectedPokemon.name !== ""
           ?
             <ImageRender
-              idToGetImage={selectedPokemon} 
+              urlImage={selectedPokemon.sprites['front_default']} 
             />
           :
             renderPokemonsList(pokemonList)
