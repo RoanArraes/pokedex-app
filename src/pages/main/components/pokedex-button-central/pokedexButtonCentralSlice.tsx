@@ -24,7 +24,9 @@ export const buttonCentralSlice = createSlice({
     },
     downButton: state => {
       state.direction = BUTTON_CENTRAL_DIRECTIONS.DOWN;
-      state.value += 1;
+      if(state.value < 19) {
+        state.value += 1;
+      }
     },
     leftButton: state => {
       state.direction = BUTTON_CENTRAL_DIRECTIONS.LEFT;
