@@ -18,8 +18,19 @@ export interface PokemonData {
   order: number,
   past_types: [],
   species: {},
-  sprites: {},
-  stats: [],
+  sprites: {
+    "front_default": string
+  },
+  stats: [
+    {
+      "base_stat": number,
+      "effort": number,
+      "stat": {
+        "name": string,
+        "url": string
+      }
+    }
+  ],
   types: [],
   weight: number
 }
