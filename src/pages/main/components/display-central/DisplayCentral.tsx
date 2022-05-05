@@ -28,7 +28,7 @@ const DisplayCentral = ({
     if(pokemonList) {
       const documento = document.getElementById('DisplayCentralTitleArea');
       if(documento) {
-        documento.scrollTop =+ buttonCentral.value * 35;
+        documento.scrollTop =+ buttonCentral.value * 34;
       }
     }
   });

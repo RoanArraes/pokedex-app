@@ -5,7 +5,7 @@ import { selectPokedex } from './pokedexSlice';
 import { CONSTANTS_POKEDEX_SLICE } from './pokedexSlice';
 
 import DisplayCentral from '../display-central/DisplayCentral';
-import DisplayMapLocalization from '../display-map-localization/DisplayMapLocalization';
+import DisplayInfo from '../display-info/DisplayInfo';
 import PokedexButtonCentral from '../pokedex-button-central/PokedexButtonCentral';
 import PokedexButtonSelect from '../pokedex-button-select/PokedexButtonSelect';
 import {
@@ -30,7 +30,7 @@ const Pokedex = () => {
           />
         </PokedexArea.DisplayAreaCentral>
         <PokedexArea.DisplayTopAreaMap>
-          <DisplayMapLocalization />
+          <DisplayInfo />
         </PokedexArea.DisplayTopAreaMap>
         <PokedexArea.DisplayBottomAreaCaracteristics>
           <DisplayCaracteristics />

@@ -4,18 +4,19 @@ import {
 
 type Props = {
   label?: string,
-  onClick: () => void
+  onClick: () => void,
+  children?: React.ReactNode
 }
 
 const Button = ({
-  label,
-  onClick
+  onClick,
+  children
 }: Props) => {
   return (
     <ButtonArea
       onClick={onClick}
     >
-      {label && label}
+      {children}
     </ButtonArea>
   )
 }

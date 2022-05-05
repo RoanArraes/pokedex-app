@@ -64,7 +64,7 @@ export const Button = {
       width: 40px;
       height: 40px;
       position: absolute;
-      transform: translateX(40px);
+      transform: translate(40px, -4px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -84,7 +84,7 @@ export const Button = {
       width: 40px;
       height: 40px;
       position: absolute;
-      transform: translateX(-40px);
+      transform: translate(-40px, -4px);
       display: flex;
       align-items: center;
       justify-content: center;

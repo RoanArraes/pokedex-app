@@ -1,9 +1,12 @@
 import { useAppSelector } from '../../../../app/hooks';
+import { LABEL_DISPLAY_INFO_POKEMON } from '../../../../common/labels';
 import { ImageRender } from '../../../../components';
 import { selectPokedex } from '../pokedex/pokedexSlice';
 import {
   Display
 } from './styles';
+
+import BackgroundDisplayInfoImage from '../../../../assets/images/pokemon.jpg';
 
 const DisplayInfo = () => {
 
@@ -12,14 +15,14 @@ const DisplayInfo = () => {
   return (
     <Display.Area>
       <ImageRender 
-        alt="map-pokemon"
+        alt="display-info-background"
         className='display-info__background-image'
-        urlImage="https://observatoriodocinema.uol.com.br/wp-content/uploads/2020/04/kit-especial-pokemon-go-personalizados-pokemon.jpg" 
+        urlImage={BackgroundDisplayInfoImage} 
       />
       <Display.InfoArea>
         <Display.Info>
           <Display.LabelInfo>
-            NAME:
+            {LABEL_DISPLAY_INFO_POKEMON.NAME}
           </Display.LabelInfo>
           <Display.ResultInfo>
             {pokemon.name}
@@ -27,12 +30,14 @@ const DisplayInfo = () => {
         </Display.Info>
         <Display.Info>
           <Display.LabelInfo>
-            TYPE:
+            {LABEL_DISPLAY_INFO_POKEMON.TYPE}
           </Display.LabelInfo>
           {
             pokemon.types.map((pkm,idx) => {
               return (
-                <Display.ResultInfo>
+                <Display.ResultInfo
+                  key={pkm.slot}
+                >
                   {(idx === (pokemon.types.length - 1)) ? pkm.type.name : pkm.type.name + ","}
                 </Display.ResultInfo>
               )
@@ -41,7 +46,7 @@ const DisplayInfo = () => {
         </Display.Info>
         <Display.Info>
           <Display.LabelInfo>
-            HEIGHT:
+            {LABEL_DISPLAY_INFO_POKEMON.HEIGHT}
           </Display.LabelInfo>
           <Display.ResultInfo>
             {pokemon.height + " meters"}
@@ -49,7 +54,7 @@ const DisplayInfo = () => {
         </Display.Info>
         <Display.Info>
           <Display.LabelInfo>
-            WEIGHT:
+            {LABEL_DISPLAY_INFO_POKEMON.WEIGHT}
           </Display.LabelInfo>
           <Display.ResultInfo>
             {pokemon.weight + " lbs"}

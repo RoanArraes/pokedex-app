@@ -12,6 +12,7 @@ export const Display = {
   Area: styled.div<PropsDisplayArea> `
     width: 100%;
     height: 100%;
+    padding: 5px;
     background-color: ${({ theme }) => theme.displayCentral.backgroundColor};
     display: flex;
     justify-content: center;
@@ -39,6 +40,10 @@ export const Display = {
     padding: 5px;
     box-sizing: border-box;
     overflow: auto;
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
   `,
   Title: styled.span<PropsTitle>`
     padding: 3px;
@@ -62,6 +67,8 @@ export const Display = {
 }
 
 export const Message =  styled.span`
-  
+  font-family: ${({ theme }) => theme.fontStyle[0]};
+  font-size: ${({ theme }) => theme.infoMessage.fontSize.medium};
+  color: ${({ theme }) => theme.infoMessage.messageColor};
 `;
     

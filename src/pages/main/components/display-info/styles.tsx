@@ -38,14 +38,17 @@ export const Display = {
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
+    font-family: ${({ theme }) => theme.fontStyle[0]};
   `,
   LabelInfo: styled.span`
-    color: white;
-    margin-right: 5px;
+    color: ${({ theme }) => theme.displayInfo.labelTextColor};
     text-transform: uppercase;
+    font-size: ${({ theme }) => theme.displayInfo.fontSize.small};
   `,
   ResultInfo: styled.span`
-    color: white;
+    color:  ${({ theme }) => theme.displayInfo.resultTextColor};
     text-transform: uppercase;
+    font-size: ${({ theme }) => theme.displayInfo.fontSize.small};
+    margin-left: 5px;
   `
 }
