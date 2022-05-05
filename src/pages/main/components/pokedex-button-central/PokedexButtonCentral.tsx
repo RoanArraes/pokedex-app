@@ -25,22 +25,30 @@ const PokedexButtonCentral = ({
       <Button.Up>
         <ButtonClick
           onClick={onClickUp}
-        />
+        >
+          ▲
+        </ButtonClick>
       </Button.Up>
       <Button.Right>
         <ButtonClick
           onClick={onClickRight}
-        />
+        >
+          ►
+        </ButtonClick>
       </Button.Right>
       <Button.Left>
         <ButtonClick
           onClick={onClickLeft}
-        />
+        >
+          ◄
+        </ButtonClick>
       </Button.Left>
       <Button.Down>
         <ButtonClick
           onClick={onClickDown}
-        />
+        >
+          ▼
+        </ButtonClick>
       </Button.Down>
     </Button.Area>
   )
