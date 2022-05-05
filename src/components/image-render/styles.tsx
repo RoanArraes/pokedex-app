@@ -1,9 +1,4 @@
-import { url } from "inspector";
 import styled from "styled-components";
-
-type Props = {
-  urlImage: string
-}
 
 export const Image = {
   Area: styled.div`
@@ -14,12 +9,9 @@ export const Image = {
     justify-content: center;
     overflow: hidden;
   `,
-  Image: styled.div<Props>`
-    width: 200px;
-    height: 180px;
-    background-image: url(${props => props.urlImage});
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+  Image: styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   `
 }

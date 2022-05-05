@@ -3,17 +3,24 @@ import {
 } from './styles';
 
 type Props = {
-  urlImage: string
+  urlImage: string,
+  className?: string,
+  alt: string
 }
 
 const ImageRender = ({
-  urlImage
+  urlImage,
+  className,
+  alt
 }: Props) => {
 
   return (
-    <Image.Area>
+    <Image.Area
+      className={className}
+    >
       <Image.Image 
-        urlImage={urlImage}
+        src={urlImage}
+        alt={alt}
       />
     </Image.Area>
   )
