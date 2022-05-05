@@ -34,8 +34,17 @@ const initialState: PokedexState = {
         }
       }
     ],
-    types: [],
-    weight: 0
+    types: [
+      {
+        "slot": 0,
+        "type": {
+          "name": "",
+          "url": ""
+        }
+      },
+    ],
+    weight: 0,
+    height: 0,
   },
   pokemons: {
     count: 0,
