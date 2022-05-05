@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { ImageRender } from "../../../../components";
-import { PokemonList } from "../../../../interfaces/pokemons.interface";
-import { Display } from "./styles";
+import { Display, Message } from "./styles";
 import { buttonCentralValue } from '../pokedex-button-central/pokedexButtonCentralSlice';
 import { useAppDispatch, useAppSelector } from "../../../../app/hooks";
 import { clearPokemonData, CONSTANTS_POKEDEX_SLICE, selectPokedex } from "../pokedex/pokedexSlice";
@@ -38,27 +37,6 @@ const DisplayCentral = ({
     dispatch(clearPokemonData());
   },[buttonCentral]);
 
-  const renderPokemonsList = (list: PokemonList) => {
-    return (
-      <Display.TitleArea
-        id="DisplayCentralTitleArea"
-      >
-        {
-          list && list.results.length > 0 && list.results.map((pokemon, idx) => {
-            return(
-              <Display.Title
-                key={pokemon.name}
-                isInObservation={verifyIsInObservation(idx, pokemon.url)}
-              >
-                {capitalizeFirstLetter(pokemon.name)}
-              </Display.Title>
-            )
-          })
-        }
-      </Display.TitleArea>
-    )
-  }
-
   const getId = (param: string): string => {
     return param.split('pokemon/')[1].substring(0,2).replace("/", "");
   }
@@ -77,16 +55,36 @@ const DisplayCentral = ({
   }
 
   return (
-    <Display.Area>
-      {
-        selectedPokemon.name !== ""
-          ?
-            <ImageRender
-              urlImage={selectedPokemon.sprites['front_default']} 
-            />
+    <Display.Area
+      selectedPokemon={selectedPokemon.name !== ""}
+    >
+      <ImageRender
+        alt="background-image-display-central"
+        className="display-central__pokemon-image"
+        urlImage={selectedPokemon.sprites['front_default']} 
+      />
+      <Display.TitleArea
+        id="DisplayCentralTitleArea"
+      >
+        {
+          pokemonList && pokemonList.results.length > 0 
+            ? 
+            pokemonList.results.map((pokemon, idx) => {
+              return(
+                <Display.Title
+                  key={pokemon.name}
+                  isInObservation={verifyIsInObservation(idx, pokemon.url)}
+                >
+                  {capitalizeFirstLetter(pokemon.name)}
+                </Display.Title>
+              )
+            })
           :
-            renderPokemonsList(pokemonList)
-      }
+            <Display.InfoArea>
+              <Message>Loading...</Message>
+            </Display.InfoArea>
+        }
+      </Display.TitleArea>
     </Display.Area>
   )
 }
