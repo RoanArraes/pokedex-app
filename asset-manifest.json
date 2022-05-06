@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.694dc723.css",
-    "main.js": "/static/js/main.aae67dcd.js",
-    "static/js/787.d2388226.chunk.js": "/static/js/787.d2388226.chunk.js",
-    "static/media/pokedex-complete.png": "/static/media/pokedex-complete.6e1dab2939f4a638371d.png",
-    "static/media/pokemon.jpg": "/static/media/pokemon.8f9d913f28cfb8f7b8cf.jpg",
-    "static/media/BreeSerif-Regular.ttf": "/static/media/BreeSerif-Regular.751eb941c0e1335ad247.ttf",
-    "static/media/button-central.png": "/static/media/button-central.1c62e7b8e444b23a3589.png",
-    "static/media/button-select.png": "/static/media/button-select.dfb9d72ab11d0c4a80d9.png",
-    "static/media/grass.png": "/static/media/grass.687a5bedfd7234be1283.png",
-    "index.html": "/index.html",
-    "main.694dc723.css.map": "/static/css/main.694dc723.css.map",
-    "main.aae67dcd.js.map": "/static/js/main.aae67dcd.js.map",
-    "787.d2388226.chunk.js.map": "/static/js/787.d2388226.chunk.js.map"
+    "main.css": "/pokedex-app/static/css/main.bbd8f409.css",
+    "main.js": "/pokedex-app/static/js/main.4dbe8b70.js",
+    "static/js/787.d2388226.chunk.js": "/pokedex-app/static/js/787.d2388226.chunk.js",
+    "static/media/pokedex-complete.png": "/pokedex-app/static/media/pokedex-complete.6e1dab2939f4a638371d.png",
+    "static/media/pokemon.jpg": "/pokedex-app/static/media/pokemon.8f9d913f28cfb8f7b8cf.jpg",
+    "static/media/BreeSerif-Regular.ttf": "/pokedex-app/static/media/BreeSerif-Regular.751eb941c0e1335ad247.ttf",
+    "static/media/button-central.png": "/pokedex-app/static/media/button-central.1c62e7b8e444b23a3589.png",
+    "static/media/button-select.png": "/pokedex-app/static/media/button-select.dfb9d72ab11d0c4a80d9.png",
+    "static/media/grass.png": "/pokedex-app/static/media/grass.687a5bedfd7234be1283.png",
+    "index.html": "/pokedex-app/index.html",
+    "main.bbd8f409.css.map": "/pokedex-app/static/css/main.bbd8f409.css.map",
+    "main.4dbe8b70.js.map": "/pokedex-app/static/js/main.4dbe8b70.js.map",
+    "787.d2388226.chunk.js.map": "/pokedex-app/static/js/787.d2388226.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.694dc723.css",
-    "static/js/main.aae67dcd.js"
+    "static/css/main.bbd8f409.css",
+    "static/js/main.4dbe8b70.js"
   ]
 }
