@@ -1,6 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
 import { downButton, leftButton, rightButton, upButton } from '../pokedex-button-central/pokedexButtonCentralSlice';
-import { buttonSelectValue } from '../pokedex-button-select/pokedexButtonSelectSlice';
 import DisplayCaracteristics from '../display-caracteristics/DisplayCaracteristics';
 import { CONSTANTS_POKEDEX_SLICE, selectPokedex } from './pokedexSlice';
 
@@ -12,7 +11,6 @@ import {
   Container,
   PokedexArea,
 } from './styles';
-import { useEffect } from 'react';
 
 const Pokedex = () => {
 

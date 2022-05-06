@@ -2,7 +2,7 @@ export const theme = {
   colors: {
     white: '#ffff',
     black: '#000',
-    background: '#B0964F'
+    background: '#533D32'
   },
   displayCentral: {
     backgroundColor: '#ffff',
