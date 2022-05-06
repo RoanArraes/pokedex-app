@@ -4,12 +4,16 @@ import { BUTTON_CENTRAL_DIRECTIONS } from '../../../../common/constants';
 
 interface ButtonState {
   direction: string,
-  value: number
+  value: number,
+  next: boolean,
+  previous: boolean
 };
 
 const initialState: ButtonState = {
   direction: "",
-  value: 0
+  value: 0,
+  next: false,
+  previous: false
 }
 
 export const buttonCentralSlice = createSlice({
@@ -20,12 +24,24 @@ export const buttonCentralSlice = createSlice({
       state.direction = BUTTON_CENTRAL_DIRECTIONS.UP;
       if (state.value > 0) {
         state.value -= 1;
+        state.previous = false;
+        state.next = false;
+      } else {
+        state.value = 0;
+        state.previous = true;
+        state.next = false;
       }
     },
     downButton: state => {
       state.direction = BUTTON_CENTRAL_DIRECTIONS.DOWN;
       if(state.value < 19) {
         state.value += 1;
+        state.previous = false;
+        state.next = false;
+      } else {
+        state.value = 0;
+        state.previous = false;
+        state.next = true;
       }
     },
     leftButton: state => {

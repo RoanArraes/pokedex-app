@@ -4,6 +4,8 @@ import { PokemonData, PokemonList } from "../../../../interfaces/pokemons.interf
 
 export const CONSTANTS_POKEDEX_SLICE = {
   GET_POKEMONS: "GET_POKEMONS",
+  GET_POKEMONS_NEXT: "GET_POKEMONS_NEXT",
+  GET_POKEMONS_PREVIOUS: "GET_POKEMONS_PREVIOUS",
   GET_POKEMON: "GET_POKEMON"
 }
 

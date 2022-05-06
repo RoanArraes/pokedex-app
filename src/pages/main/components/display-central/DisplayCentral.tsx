@@ -35,6 +35,12 @@ const DisplayCentral = ({
 
   useEffect(() => {
     dispatch(clearPokemonData());
+
+    if(buttonCentral.next && pokemonList.next && pokemonList.next !== "") {
+      dispatch({ type: CONSTANTS_POKEDEX_SLICE.GET_POKEMONS_NEXT, payload: pokemonList.next });
+    } else if (buttonCentral.previous && pokemonList.previous && pokemonList.previous !== "") {
+      dispatch({ type: CONSTANTS_POKEDEX_SLICE.GET_POKEMONS_PREVIOUS, payload: pokemonList.previous });
+    }
   },[buttonCentral]);
 
   const getId = (param: string): string => {

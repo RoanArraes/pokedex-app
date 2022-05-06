@@ -1,8 +1,8 @@
 import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
 import { downButton, leftButton, rightButton, upButton } from '../pokedex-button-central/pokedexButtonCentralSlice';
+import { buttonSelectValue } from '../pokedex-button-select/pokedexButtonSelectSlice';
 import DisplayCaracteristics from '../display-caracteristics/DisplayCaracteristics';
-import { selectPokedex } from './pokedexSlice';
-import { CONSTANTS_POKEDEX_SLICE } from './pokedexSlice';
+import { CONSTANTS_POKEDEX_SLICE, selectPokedex } from './pokedexSlice';
 
 import DisplayCentral from '../display-central/DisplayCentral';
 import DisplayInfo from '../display-info/DisplayInfo';
@@ -12,10 +12,12 @@ import {
   Container,
   PokedexArea,
 } from './styles';
+import { useEffect } from 'react';
 
 const Pokedex = () => {
 
   const dispatch = useAppDispatch();
+  const pokemonSelectedName = useAppSelector(selectPokedex).pokemon.name;
 
   let idPokemon: string = "";
 
@@ -45,7 +47,10 @@ const Pokedex = () => {
         </PokedexArea.ButtonAreaCentral>
         <PokedexArea.ButtonAreaSelect>
           <PokedexButtonSelect
-            onClickSelect={() => dispatch({ type: CONSTANTS_POKEDEX_SLICE.GET_POKEMON, payload: idPokemon })}
+            onClickSelect={
+              () => pokemonSelectedName === "" && 
+              dispatch({ type: CONSTANTS_POKEDEX_SLICE.GET_POKEMON, payload: idPokemon })
+            }
           />
         </PokedexArea.ButtonAreaSelect>
       </PokedexArea.Area>
