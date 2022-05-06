@@ -8,7 +8,27 @@ export const getPokemons = async(): Promise<PokemonList | any> => {
     return response.data;
   }
   catch (error) {
-    return null
+    return null;
+  }
+}
+
+export const getPokemonsNext = async(nextListUrl: string): Promise<PokemonList | any> => {
+  try {
+    const response = await axios.get(nextListUrl);
+    return response.data;
+  }
+  catch (error) {
+    return null;
+  }
+}
+
+export const getPokemonsPrevious = async(previousListUrl: string): Promise<PokemonList | any> => {
+  try {
+    const response = await axios.get(previousListUrl);
+    return response.data;
+  }
+  catch (error) {
+    return null;
   }
 }
 
